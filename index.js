@@ -45,7 +45,7 @@ function generateQuestions() {
         },
 
         {
-          type: "input",
+          type: "number",
           name: "managerId",
           message: "Manager's employee ID number:",
         },
@@ -84,7 +84,7 @@ function generateQuestions() {
         },
 
         {
-          type: "input",
+          type: "number",
           name: "engineerId",
           message: "Engineer's employee ID number:",
         },
