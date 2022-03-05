@@ -1,15 +1,15 @@
 const Intern = require("../lib/intern");
 
-test("Can create school.", () => {
-    const testSchool = "XYZ School";
-    const employeeInstance = new Intern("Girish", 1, "girishmadnani05@gmail.com", testSchool);
-    expect(employeeInstance.school).toBe(testSchool);
+test("Add school name", () => {
+    const School = "XYZ School";
+    const employeeInstance = new Intern("Girish", 1, "girishmadnani05@gmail.com", School);
+    expect(employeeInstance.school).toBe(School);
 });
 
-test("Testing officeNumber will return office number.", () => {
-    const testSchool = "XYZ School";
-    const employeeInstance = new Intern("Girish", 1, "girishmadnani05@gmail.com", testSchool);
-    expect(employeeInstance.getSchool()).toBe(testSchool);
+test("Testing school name will return School", () => {
+    const School = "XYZ School";
+    const employeeInstance = new Intern("Girish", 1, "girishmadnani05@gmail.com", School);
+    expect(employeeInstance.getSchool()).toBe(School);
 });
 
 test("Testing role.", () => {
