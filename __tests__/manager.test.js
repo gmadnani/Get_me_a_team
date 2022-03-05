@@ -12,7 +12,7 @@ test("Testing officeNumber will return the test number.", () => {
     expect(employeeInstance.getOfficeNumber()).toBe(testNumber);
 });
 
-test("Testing role.", () => {
+test("Testing role", () => {
     const role = "Manager";
     const employeeInstance = new Manager("Girish", 1, "girishmadnani05@gmail.com", 5);
     expect(employeeInstance.getRole()).toBe(role);

@@ -12,7 +12,7 @@ test("Testing school name will return School", () => {
     expect(employeeInstance.getSchool()).toBe(School);
 });
 
-test("Testing role.", () => {
+test("Testing role", () => {
     const role = "Intern";
     const employeeInstance = new Intern("Girish", 1, "girishmadnani05@gmail.com", "XYZ School");
     expect(employeeInstance.getRole()).toBe(role);
