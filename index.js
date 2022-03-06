@@ -16,6 +16,8 @@ membersArray = []
 
 
 function generateQuestions() {
+
+    //function to check the role
   function whichRole() {
     inquirer
       .prompt([
@@ -27,6 +29,7 @@ function generateQuestions() {
         },
       ])
       .then(function (userInput) {
+          //switch case for roles
         switch (userInput.addEmployeePrompt) {
           case "Manager":
             addManager();
@@ -37,13 +40,15 @@ function generateQuestions() {
           case "Intern":
             addIntern();
             break;
-
+            
+            //when default is selected go the generateTeam function
           default:
             generateTeam();
         }
       });
   }
 
+  //function to add a manager to the array
   function addManager() {
     inquirer
       .prompt([
@@ -98,11 +103,16 @@ function generateQuestions() {
           answers.managerEmail,
           answers.managerOfficeNumber
         );
+
+        //pushing it to the array
         membersArray.push(manager);
+
+        //re-run the function
         whichRole();
       });
   }
 
+  //function to add an engineer to the array
   function addEngineer() {
     inquirer
       .prompt([
@@ -157,11 +167,16 @@ function generateQuestions() {
           answers.engineerEmail,
           answers.engineerGithub
         );
+
+        //pushing it to the array
         membersArray.push(engineer);
+
+        //re-run the function
         whichRole();
       });
   }
 
+  //function to add an intern to the array
   function addIntern() {
     inquirer
       .prompt([
@@ -216,17 +231,23 @@ function generateQuestions() {
           answers.internEmail,
           answers.internSchool
         );
+
+        //pushing it to the array
         membersArray.push(intern);
+
+        //re-run the function
         whichRole();
       });
   }
 
+  //function to write to the file
   function generateTeam() {
     console.log("Team Done!");
     fs.writeFileSync(outputPath, buildTeam(membersArray))
 
   }
 
+  //run function first time
 whichRole();
 }
 

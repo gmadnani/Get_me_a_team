@@ -1,5 +1,6 @@
 const generateTeam = team => {
 
+    //html for manager card
     const generateManager = manager => {
         return `
 <div class="card employee-card">
@@ -18,6 +19,7 @@ const generateTeam = team => {
         `;
     };
 
+    //html for engineer card
     const generateEngineer = engineer => {
         return `
 <div class="card employee-card">
@@ -36,6 +38,7 @@ const generateTeam = team => {
         `;
     };
 
+    //html for intern card
     const generateIntern = intern => {
         return `
 <div class="card employee-card">
@@ -56,24 +59,29 @@ const generateTeam = team => {
 
     const employee = [];
 
+    //pushing the manager html in the array
     employee.push(team
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => generateManager(manager))
     );
+
+    //pushing the engineer html in the array
     employee.push(team
         .filter(employee => employee.getRole() === "Engineer")
         .map(engineer => generateEngineer(engineer))
         .join("")
     );
+
+    //pushing the intern html in the array
     employee.push(team
         .filter(employee => employee.getRole() === "Intern")
         .map(intern => generateIntern(intern))
         .join("")
     );
-
     return employee.join("");
 }
 
+//main html
 module.exports = team => {
 
     return `
