@@ -4,20 +4,18 @@ const Intern = require("./lib/intern.js");
 
 const fs = require("fs");
 const inquirer = require("inquirer");
-const emailValidator = require('email-validator');
+const emailValidator = require("email-validator");
 
 const path = require("path");
 
 const DIST_DIR = path.resolve(__dirname, "dist");
 const outputPath = path.join(DIST_DIR, "index.html");
-const buildTeam = require("./src/generateTeam.js")
+const buildTeam = require("./src/generateTeam.js");
 
-membersArray = []
-
+membersArray = [];
 
 function generateQuestions() {
-
-    //function to check the role
+  //function to check the role
   function whichRole() {
     inquirer
       .prompt([
@@ -29,7 +27,7 @@ function generateQuestions() {
         },
       ])
       .then(function (userInput) {
-          //switch case for roles
+        //switch case for roles
         switch (userInput.addEmployeePrompt) {
           case "Manager":
             addManager();
@@ -40,8 +38,8 @@ function generateQuestions() {
           case "Intern":
             addIntern();
             break;
-            
-            //when default is selected go the generateTeam function
+
+          //when default is selected go the generateTeam function
           default:
             generateTeam();
         }
@@ -58,8 +56,10 @@ function generateQuestions() {
           message: "Manager's name:",
           validate: (value) => {
             if (value) {
-                return true
-            } else { return "Please enter manager's name." }
+              return true;
+            } else {
+              return "Please enter manager's name.";
+            }
           },
         },
 
@@ -69,9 +69,11 @@ function generateQuestions() {
           message: "Manager's employee ID number:",
           validate: (value) => {
             if (value && !isNaN(value)) {
-                return true
-            } else { return "Please enter manager's id number." }
-        },
+              return true;
+            } else {
+              return "Please enter manager's id number.";
+            }
+          },
         },
 
         {
@@ -80,9 +82,11 @@ function generateQuestions() {
           message: "Manager's email address:",
           validate: (value) => {
             if (emailValidator.validate(value)) {
-                return true
-            } else { return 'Please enter a valid email address.' }
-        },
+              return true;
+            } else {
+              return "Please enter a valid email address.";
+            }
+          },
         },
 
         {
@@ -91,9 +95,11 @@ function generateQuestions() {
           message: "Manager's office number:",
           validate: (value) => {
             if (value && !isNaN(value)) {
-                return true
-            } else { return "Please enter manager's office number." }
-        },
+              return true;
+            } else {
+              return "Please enter manager's office number.";
+            }
+          },
         },
       ])
       .then((answers) => {
@@ -122,9 +128,11 @@ function generateQuestions() {
           message: "Engineer's name:",
           validate: (value) => {
             if (value) {
-                return true
-            } else { return "Please enter engineer's name." }
-        },
+              return true;
+            } else {
+              return "Please enter engineer's name.";
+            }
+          },
         },
 
         {
@@ -133,9 +141,11 @@ function generateQuestions() {
           message: "Engineer's employee ID number:",
           validate: (value) => {
             if (value && !isNaN(value)) {
-                return true
-            } else { return "Please enter engineer's id number." }
-        },
+              return true;
+            } else {
+              return "Please enter engineer's id number.";
+            }
+          },
         },
 
         {
@@ -144,9 +154,11 @@ function generateQuestions() {
           message: "Engineer's email address:",
           validate: (value) => {
             if (emailValidator.validate(value)) {
-                return true
-            } else { return 'Please enter a valid email address.' }
-        },
+              return true;
+            } else {
+              return "Please enter a valid email address.";
+            }
+          },
         },
 
         {
@@ -155,9 +167,11 @@ function generateQuestions() {
           message: "Engineer's GitHub username:",
           validate: (value) => {
             if (value) {
-                return true
-            } else { return "Please enter engineer's GitHub." }
-        },
+              return true;
+            } else {
+              return "Please enter engineer's GitHub.";
+            }
+          },
         },
       ])
       .then((answers) => {
@@ -186,9 +200,11 @@ function generateQuestions() {
           message: "Intern's name:",
           validate: (value) => {
             if (value) {
-                return true
-            } else { return "Please enter intern's name." }
-        },
+              return true;
+            } else {
+              return "Please enter intern's name.";
+            }
+          },
         },
 
         {
@@ -197,9 +213,11 @@ function generateQuestions() {
           message: "Intern's employee ID number:",
           validate: (value) => {
             if (value && !isNaN(value)) {
-                return true
-            } else { return "Please enter intern's id number." }
-        },
+              return true;
+            } else {
+              return "Please enter intern's id number.";
+            }
+          },
         },
 
         {
@@ -208,9 +226,11 @@ function generateQuestions() {
           message: "Intern's email address:",
           validate: (value) => {
             if (emailValidator.validate(value)) {
-                return true
-            } else { return 'Please enter a valid email address.' }
-        },
+              return true;
+            } else {
+              return "Please enter a valid email address.";
+            }
+          },
         },
 
         {
@@ -219,9 +239,11 @@ function generateQuestions() {
           message: "Intern attend:",
           validate: (value) => {
             if (value) {
-                return true
-            } else { return "Please enter the name of school." }
-        },
+              return true;
+            } else {
+              return "Please enter the name of school.";
+            }
+          },
         },
       ])
       .then((answers) => {
@@ -243,12 +265,11 @@ function generateQuestions() {
   //function to write to the file
   function generateTeam() {
     console.log("Team Done!");
-    fs.writeFileSync(outputPath, buildTeam(membersArray))
-
+    fs.writeFileSync(outputPath, buildTeam(membersArray));
   }
 
   //run function first time
-whichRole();
+  whichRole();
 }
 
 generateQuestions();
