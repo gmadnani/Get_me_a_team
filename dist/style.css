@@ -5,5 +5,18 @@
 }
 
 .card-body {
-    background-color: rgb(240, 240, 240);
+    background-image: linear-gradient(to right, rgb(0, 149, 20), rgb(0, 56, 22));
+}
+
+body{
+    background-image: linear-gradient(to right, rgb(29, 29, 29), rgb(116, 114, 114));
+}
+
+.team-heading{
+    background-image: linear-gradient(to right, rgb(128, 0, 0), rgb(46, 0, 0));
+}
+
+.card-header{
+    
+    background-image: linear-gradient(to right, rgb(66, 0, 104), rgb(20, 0, 46));
 }
