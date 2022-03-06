@@ -1,7 +1,15 @@
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
+
+const fs = require("fs");
 const inquirer = require("inquirer");
+
+const path = require("path");
+
+const DIST_DIR = path.resolve(__dirname, "dist");
+const outputPath = path.join(DIST_DIR, "index.html");
+const buildTeam = require("./src/generateTeam.js")
 
 membersArray = []
 
@@ -153,7 +161,9 @@ function generateQuestions() {
   }
 
   function generateTeam() {
-    console.log("Team created!");
+    console.log("Team Done!");
+    fs.writeFileSync(outputPath, buildTeam(membersArray))
+
   }
 
 whichRole();

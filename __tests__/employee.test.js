@@ -22,7 +22,7 @@ test("Testing email", () => {
     const employeeInstance = new Employee("Girish", 2, email);
     expect(employeeInstance.email).toBe(email);
 })
-
+    
 
 test("getName method returns name", () => {
     const name = "Girish";
